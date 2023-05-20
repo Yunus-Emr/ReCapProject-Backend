@@ -1,4 +1,4 @@
-﻿using Entities.Abstract;
+﻿using Core.Entities;
 using Entities.Concrete;
 using System;
 using System.Collections.Generic;
@@ -11,10 +11,11 @@ namespace Entities.Concrete
     public class Car : IEntity
     {
         public int CarId { get; set; }
+        public int ColorId { get; set; }
+        public int BrandId { get; set; }
         public int ModelYear { get; set; }
         public int DailyPrice { get; set; }
         public string CarName { get; set; }
-        public int ColorId { get; set; }
-        public int BrandId { get; set; }
+
     }
 }
