@@ -11,11 +11,11 @@ namespace ConsoleUI
     {
         static void Main(string[] args)
         {
-             CarTest();
+             //CarTest();
 
             //ColorTest();
 
-            //BrandTest();
+            BrandTest();
 
         }
 
@@ -41,7 +41,7 @@ namespace ConsoleUI
             CarManager carManager = new CarManager(new EfCarDal());
             var result = carManager.GetCarDetails();
             foreach (var car in result.Data)           
-                Console.WriteLine("{0}/{1}/{2}",car.ColorName,car.BrandName,car.DailyPrice);           
+                Console.WriteLine(car.CarName);           
         }
     }
 }
