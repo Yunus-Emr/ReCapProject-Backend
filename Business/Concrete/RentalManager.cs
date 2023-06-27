@@ -39,11 +39,6 @@ namespace Business.Concrete
             return new SuccessDataResult<List<Rental>>(_rentalDal.GetAll());
         }
 
-        public IDataResult<List<RentalDetailDto>> GetRentalCarDetails()
-        {
-            return new SuccessDataResult<List<RentalDetailDto>>(_rentalDal.GetRentalCarDetails());
-        }
-
         public IResult Update(Rental rental)
         {
             return new SuccessResult();
