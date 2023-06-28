@@ -33,7 +33,7 @@ namespace WebAPI.Controllers
             var result = _carService.GetById(carId);
             if (result.Success)
             {
-                return Ok(result);
+                return Ok(result.Data.CarId);
             }
             return BadRequest(result);
         }
