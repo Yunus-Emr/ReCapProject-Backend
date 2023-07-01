@@ -16,8 +16,6 @@ namespace ConsoleUI
             //ColorTest();
 
             //BrandTest();
-
-            //IdTest();
         }
 
         private static void ColorTest()
@@ -43,12 +41,6 @@ namespace ConsoleUI
             var result = carManager.GetAll();
             foreach (var car in    result.Data)           
                 Console.WriteLine(car.CarName);           
-        }
-        private static void IdTest()
-        {
-            CarManager carManager = new CarManager(new EfCarDal());
-            var result = carManager.GetById(2);
-            Console.WriteLine(result.Data);
         }
     }
 }
