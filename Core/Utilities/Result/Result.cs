@@ -14,7 +14,6 @@ namespace Core.Utilities.Result
 
         public Result(bool success,string message):this(success)
         {
-            Success = success;
             Message = message;
         }
 
