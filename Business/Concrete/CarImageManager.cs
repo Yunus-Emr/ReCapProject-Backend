@@ -28,11 +28,8 @@ namespace Business.Concrete
 
         }
 
-
-        //IFormFile it means for HTTP protocol for file to request.
         public IResult Add(IFormFile file, CarImage carImage)
         {
-            //used the Polymorphism to use rules. I wrote the rule method at below side
             IResult result = BusinessRules.Run(CheckForCarImageLimit(carImage.CarId));
             if (result != null)
             {
@@ -48,9 +45,7 @@ namespace Business.Concrete
 
         public IResult Delete(CarImage carImage)
         {
-            //for safety we added each other after that we can find the way then we can delete it.
             _fileHelperService.Delete(PathConstants.CarImagesPath + carImage.ImagePath);
-            //then we delete the in dataBase.
             _carImageDal.Delete(carImage);
 
             return new SuccessResult(Messages.CarImageDeleted);
@@ -65,14 +60,10 @@ namespace Business.Concrete
 
         public IResult Update(IFormFile file, CarImage carImage)
         {
-            //Firstly Update the ImageFilePath
             carImage.ImagePath = _fileHelperService.Update(file, PathConstants.CarImagesPath + carImage.ImagePath,
                 PathConstants.CarImagesPath);
-            //Then Update the Upload time for image.When they uploaded in the system.
             carImage.ImageDate = DateTime.Now;
-            //Then Update the Database ImageFilePath
             _carImageDal.Update(carImage);
-            //everything Success result messages
             return new SuccessResult(Messages.ImageUpdated);
         }
         public IDataResult<List<CarImage>> GetAll()
@@ -91,7 +82,6 @@ namespace Business.Concrete
             return new SuccessDataResult<List<CarImage>>(_carImageDal.GetAll(c => c.CarId == id), Messages.ImagesListedByCarId);
         }
 
-        //ImageLimit can not more 5 photos...
         private IResult CheckForCarImageLimit(int carId)
         {
             var result = _carImageDal.GetAll(i => i.CarId == carId).Count;

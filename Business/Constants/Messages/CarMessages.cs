@@ -4,10 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Business.Constants
+namespace Business.Constants.Messages
 {
-    public class PathConstants
+    public class CarMessages
     {
-        public const string CarImagesPath = "wwwroot\\Uploads\\Images\\";
     }
 }
