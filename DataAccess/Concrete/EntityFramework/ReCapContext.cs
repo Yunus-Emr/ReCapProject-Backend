@@ -13,7 +13,6 @@ namespace DataAccess.Concrete.EntityFramework
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             optionsBuilder.UseSqlServer(@"Server = (localdb)\MSSQLLocalDB;Database=ReCapDb;Trusted_Connection=True;");
-            AppContext.SetSwitch("Npgsql.EnableLegacyTimestampBehavior", true); 
         }
         public DbSet<Car> Cars { get; set; }
         public DbSet<Brand> Brands { get; set; }
