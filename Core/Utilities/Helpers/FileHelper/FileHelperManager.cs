@@ -1,4 +1,4 @@
-﻿using Core.Utilities.Helpers.GuidHelper;
+﻿using Core.Utilities.Helpers.GuidHelpers;
 using Microsoft.AspNetCore.Http;
 using System;
 using System.Collections.Generic;
