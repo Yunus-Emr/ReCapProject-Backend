@@ -40,7 +40,15 @@ namespace Business.Constants
         public static string UserListed = "Kullanıcılar listelendi";
 
         public static string RentalReturnError = "Araba teslim edilmemiş";
-    
+
+        public static string ImageAdded="Resim eklendi";
+        public static string CarImageAlreadyHave = "";
+        public static string CarImageLimitReached="";
+        public static string ImagesListedByCarId="Resimler araba id'ye göre listelendi";
+        public static string ImagesListed="Resimler listelendi";
+        public static string ImageUpdated="Resim güncellendi";
+        public static string CarImageDeleted="Resim silindi";
+        public static string ImagesListedById= "Resimler id'ye göre listelendi";
     }
 
 }
