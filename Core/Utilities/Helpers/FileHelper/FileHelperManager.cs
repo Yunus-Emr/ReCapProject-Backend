@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace Core.Utilities.Helpers.FileHelper
 {
-    public class FileHelperManager : IFileHelperService
+    public class FileHelperManager : IFileHelper
     {
         public void Delete(string filePath)
         {
@@ -36,7 +36,7 @@ namespace Core.Utilities.Helpers.FileHelper
                     Directory.CreateDirectory(root);
                 }
                 string extension = Path.GetExtension(file.FileName);
-                string guid = GuidHelpers.GuidHelper.CreateGuild();
+                string guid = GuidHelper.CreateGuild();
                 string filePath = guid + extension;
 
                 using (FileStream fileStream = File.Create(root + filePath))

@@ -18,13 +18,13 @@ namespace Business.Concrete
     public class CarImageManager : ICarImageService
     {
         ICarImageDal _carImageDal;
-        IFileHelperService _fileHelperService;
+        IFileHelper _fileHelper;
 
 
-        public CarImageManager(ICarImageDal carImageDal, IFileHelperService fileHelperService)
+        public CarImageManager(ICarImageDal carImageDal, IFileHelper fileHelper)
         {
             _carImageDal = carImageDal;
-            _fileHelperService = fileHelperService;
+            _fileHelper = fileHelper;
 
         }
 
@@ -35,7 +35,7 @@ namespace Business.Concrete
             {
                 return result;
             }
-            carImage.ImagePath = _fileHelperService.Upload(file, PathConstants.CarImagesPath);
+            carImage.ImagePath = _fileHelper.Upload(file, PathConstants.CarImagesPath);
             carImage.ImageDate = DateTime.Now;
 
             _carImageDal.Add(carImage);
@@ -45,7 +45,7 @@ namespace Business.Concrete
 
         public IResult Delete(CarImage carImage)
         {
-            _fileHelperService.Delete(PathConstants.CarImagesPath + carImage.ImagePath);
+            _fileHelper.Delete(PathConstants.CarImagesPath + carImage.ImagePath);
             _carImageDal.Delete(carImage);
 
             return new SuccessResult(Messages.CarImageDeleted);
@@ -60,8 +60,7 @@ namespace Business.Concrete
 
         public IResult Update(IFormFile file, CarImage carImage)
         {
-            carImage.ImagePath = _fileHelperService.Update(file, PathConstants.CarImagesPath + carImage.ImagePath,
-                PathConstants.CarImagesPath);
+            carImage.ImagePath = _fileHelper.Update(file, PathConstants.CarImagesPath + carImage.ImagePath,PathConstants.CarImagesPath);
             carImage.ImageDate = DateTime.Now;
             _carImageDal.Update(carImage);
             return new SuccessResult(Messages.ImageUpdated);
