@@ -10,7 +10,7 @@ namespace Core.Extensions
 {
     public static class ClaimExtensions
     {
-        public static void AddEmail(this ICollection<Claim> claims , string email)
+        public static void AddEmail(this ICollection<Claim> claims, string email)
         {
             claims.Add(new Claim(JwtRegisteredClaimNames.Email, email));
         }
@@ -25,7 +25,7 @@ namespace Core.Extensions
         }
         public static void AddRoles(this ICollection<Claim> claims, string[] roles)
         {
-            roles.ToList().ForEach(role=> claims.Add(new Claim(ClaimTypes.Role, role)));
+            roles.ToList().ForEach(role => claims.Add(new Claim(ClaimTypes.Role, role)));
         }
     }
 }

@@ -37,20 +37,20 @@ namespace Business.Concrete
             return new SuccessDataResult<List<User>>(_userDal.GetAll());
         }
 
-        public IDataResult<User> GetByEmail(string email)
+        public User GetByEmail(string email)
         {
-            return new SuccessDataResult<User>(_userDal.Get(u => u.Email == email));  
+            return _userDal.Get(u => u.Email == email);
         }
 
-        public IDataResult<List<OperationClaim>> GetClaims(User user)
-        {      
-            return new SuccessDataResult<List<OperationClaim>>(_userDal.GetClaims(user));
+        public List<OperationClaim> GetClaims(User user)
+        {
+            return _userDal.GetClaims(user);
         }
 
         public IResult Update(User user)
         {
             _userDal.Update(user);
             return new SuccessResult();
-        }
+        }      
     }
 }

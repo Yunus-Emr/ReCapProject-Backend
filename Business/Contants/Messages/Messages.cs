@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Core.Entities.Concrete;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -49,6 +50,14 @@ namespace Business.Constants.Messages
         public static string ImageUpdated = "Resim güncellendi";
         public static string CarImageDeleted = "Resim silindi";
         public static string ImagesListedById = "Resimler id'ye göre listelendi";
+
+        public static string UserNotFound = "Kullanıcı Bulunamadı";
+        public static string UserRegistered = "Kullanıcı başarıyla kaydedildi";
+        public static string UserAlreadyExists = "Kullanıcı zaten mevcut";
+        public static string PasswordError = "Parola hatalı";
+        public static string SuccessfulLogin="Başarılı giriş";
+        public static string AccessTokenCreated="Access token oluşturuldu";
+        public static string AuthorizationDenied = "Yetki hatası";
     }
 
 }
