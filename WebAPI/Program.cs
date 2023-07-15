@@ -24,8 +24,6 @@ namespace WebAPI
             builder.Services.AddEndpointsApiExplorer();
             builder.Services.AddSwaggerGen();
 
-
-
             builder.Services.AddCors(options =>
             {
                 options.AddPolicy("AllowOrigin",
@@ -49,11 +47,8 @@ namespace WebAPI
                    };
                });
 
-
-
             builder.Host.UseServiceProviderFactory(Services => new AutofacServiceProviderFactory()).ConfigureContainer<ContainerBuilder>(builder => { builder.RegisterModule(new AutofacBusinessModule()); });
 
-          
             var app = builder.Build();
 
             app.UseCors(builder => builder.WithOrigins("http://localhost:3000").AllowAnyHeader());
@@ -69,7 +64,7 @@ namespace WebAPI
 
             app.UseAuthentication(); // anahtar
             app.UseAuthorization(); // yetki
-           
+
 
             app.MapControllers();
 
