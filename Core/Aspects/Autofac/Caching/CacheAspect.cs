@@ -20,7 +20,7 @@ namespace Core.Aspects.Autofac.Caching
         {
             _duration = duration;
             _cacheManager = ServiceTool.ServiceProvider.GetService<ICacheManager>();
-        }
+        }   
 
         public override void Intercept(IInvocation invocation)
         {
