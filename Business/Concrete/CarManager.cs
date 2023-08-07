@@ -88,5 +88,10 @@ namespace Business.Concrete
         {
             return new SuccessDataResult<List<CarDetailDto>>(_carDal.GetCarDetailsDtoByColorId(colorId));
         }
+
+        public IDataResult<List<CarDetailDto>> GetCarDetailsByCarId(int carId)
+        {
+            throw new NotImplementedException();
+        }
     }
 }
