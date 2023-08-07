@@ -28,10 +28,10 @@ namespace WebAPI.Controllers
             return BadRequest(result);
         }
 
-        [HttpGet("getcarsbybrandid")]
-        public IActionResult GetCarsByBrandId(int id)
+        [HttpGet("getbybrand")]
+        public IActionResult GetByBrand(int brandId)
         {
-            var result = _carService.GetCarsByBrandId(id);
+            var result = _carService.GetByBrandId(brandId);
             if (result.Success)
             {
                 return Ok(result);
@@ -39,10 +39,10 @@ namespace WebAPI.Controllers
             return BadRequest(result);
         }
 
-        [HttpGet("getcarsbycolorid")]
-        public IActionResult GetCarsByColorId(int id)
+        [HttpGet("getbycolor")]
+        public IActionResult GetByColor(int colorId)
         {
-            var result = _carService.GetCarsByColorId(id);
+            var result = _carService.GetByColorId(colorId);
             if (result.Success)
             {
                 return Ok(result);
@@ -86,12 +86,35 @@ namespace WebAPI.Controllers
         [HttpPost("update")]
         public IActionResult Update(Car car) 
         {
-            var result = (_carService.Update(car));
+            var result = _carService.Update(car);
             if (result.Success)
             {
                 return Ok(result);
             }
             return BadRequest(result);
         }
+
+        [HttpGet("getcarsdetailbybrand")]
+        public IActionResult GetCarsDetailByBrand(int brandId)
+        {
+            var result = _carService.GetCarDetailsByBrandId(brandId);
+            if (result.Success)
+            {
+                return Ok(result);
+            }
+            return BadRequest(result);
+        }
+
+        [HttpGet("getcarsdetailbycolor")]
+        public IActionResult GetCarsDetailByColor(int colorId)
+        {
+            var result = _carService.GetCarDetailsByColorId(colorId);
+            if (result.Success)
+            {
+                return Ok(result);
+            }
+            return BadRequest(result);
+        }
+
     }
 }

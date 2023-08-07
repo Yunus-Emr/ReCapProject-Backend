@@ -12,6 +12,7 @@ using Core.Utilities.Security.Encryption;
 using Core.Utilities.Ioc;
 using Core.DependencyResolvers;
 using Core.Extensions;
+using Microsoft.Extensions.FileProviders;
 
 namespace WebAPI
 {
@@ -64,6 +65,13 @@ namespace WebAPI
                 app.UseSwaggerUI();
             }
             app.UseCors(builder => builder.WithOrigins("http://localhost:4200").AllowAnyHeader());
+
+            app.UseStaticFiles(new StaticFileOptions
+            {
+                FileProvider = new PhysicalFileProvider(Path.Combine(builder.Environment.ContentRootPath, "wwwroot/Upload/Images")),
+                RequestPath = "/Files"
+            });
+
 
             app.UseHttpsRedirection();
 
